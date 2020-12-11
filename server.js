@@ -64,7 +64,6 @@ app.post("/api/userinfo", (req, res) => {
     });
 });
 
-
 app.post("/api/accountdetails", (req, res) => {
   axios
     .post(
@@ -86,7 +85,6 @@ app.post("/api/accountdetails", (req, res) => {
       } catch (e) {}
     });
 });
-
 
 app.post("/api/updatebalance", (req, res) => {
   axios
@@ -111,7 +109,6 @@ app.post("/api/updatebalance", (req, res) => {
     });
 });
 
-
 app.post("/api/transactiondetails", (req, res) => {
   axios
     .post(
@@ -134,8 +131,6 @@ app.post("/api/transactiondetails", (req, res) => {
     });
 });
 
-
-
 app.post("/api/addtransaction", (req, res) => {
   axios
     .post(
@@ -143,7 +138,7 @@ app.post("/api/addtransaction", (req, res) => {
       {
         custID: req.body.customerID,
         payeeID: req.body.payeeID,
-        dateTime: req.body.date,
+        dateTime: req.body.dateTime,
         amount: req.body.amount,
         expensesCat: req.body.expensesCat,
         eGift: req.body.eGift,
@@ -163,7 +158,6 @@ app.post("/api/addtransaction", (req, res) => {
       } catch (e) {}
     });
 });
-
 
 app.get("/api/zz", (req, res) => {
   console.log("api/users called!!!!");
