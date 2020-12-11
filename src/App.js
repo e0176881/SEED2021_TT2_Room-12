@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/navbar";
 import Home from "./components/home";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Login from "./components/login.component";
+import Login from "./components/login";
 
 import {
   Modal,
