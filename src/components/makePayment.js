@@ -2,21 +2,36 @@ import React from "react";
 
 function makePayment() {
   return <div class="section-title">
-      <h2>Make payments</h2>
       <div class="container">
       <div class="row">
             <div class="col-md-6">
               <div class="icon-box">
-                <i class="icofont-computer"></i>
-                <h4><a href="#">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                <h4>Ready to make quick payments?</h4>
+                <p>Don't worry, we've got you! Make fast and secure payments to anyone now!</p>
               </div>
             </div>
             <div class="col-md-6 mt-4 mt-lg-0">
               <div class="icon-box">
-                <i class="icofont-chart-bar-graph"></i>
-                <h4><a href="#">Dolor Sitema</a></h4>
-                <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                <form>
+                  <label>Payee</label>
+                  <input
+                    type="text"
+                    name="payeename"
+                    className="form-control"
+                    placeholder="Enter Payee Name"
+                  />
+                  <label>Amount</label>
+                  <input
+                    type="float"
+                    name="payamount"
+                    className="form-control"
+                    placeholder="Enter Amount"
+                  />
+                  <br></br>
+                  <button type="submit" className="btn btn-dark btn-lg btn-block">
+                    Pay lor!
+                  </button>
+                </form>
               </div>
             </div>
         </div>
