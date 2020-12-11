@@ -8,15 +8,37 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      rememberMe: false,
     };
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheckBox = this.handleCheckBox.bind(this);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("componentDidMount rmb me " + this.state.rememberMe);
+    console.log("componentDidMount username " + this.state.username);
+    console.log("componentDidMount password " + this.state.password);
+    if (localStorage.getItem("userLoginDetails") != null) {
+      console.log("componentDidMount rmb me " + this.state.rememberMe);
+      console.log("componentDidMount username " + this.state.username);
+      console.log("componentDidMount password " + this.state.password);
+      this.state.rememberMe = true;
+      this.state.username = JSON.parse(
+        localStorage.getItem("userLoginDetails")
+      ).username;
+      this.state.password = JSON.parse(
+        localStorage.getItem("userLoginDetails")
+      ).password;
+    }
+  }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value, error: "" });
     // console.log(user);
+  };
+
+  handleCheckBox = (e) => {
+    this.setState({ rememberMe: !this.state.rememberMe });
   };
 
   login = (e) => {
@@ -37,8 +59,27 @@ export default class Login extends Component {
           localStorage.setItem("user", JSON.stringify(response.data));
           console.log("user " + localStorage.getItem("user"));
           console.log(JSON.parse(localStorage.getItem("user")).custID);
+          console.log("console rmb me " + this.state.rememberMe);
+          console.log("console username " + this.state.username);
+          console.log("console password " + this.state.password);
+          if (this.state.rememberMe) {
+            var userCredentials = {
+              username: this.state.username,
+              password: this.state.password,
+            };
+            localStorage.setItem(
+              "userLoginDetails",
+              JSON.stringify(userCredentials)
+            );
+            console.log(
+              "HHHH " +
+                JSON.parse(localStorage.getItem("userLoginDetails")).username
+            );
+          } else {
+            localStorage.removeItem("userLoginDetails");
+            this.state.rememberMe = false;
+          }
         }
-        window.location("/dashboard");
       });
   };
   render() {
@@ -76,6 +117,8 @@ export default class Login extends Component {
               type="checkbox"
               className="custom-control-input"
               id="customCheck1"
+              checked={this.state.rememberMe}
+              onChange={this.handleCheckBox}
             />
             <label className="custom-control-label" htmlFor="customCheck1">
               Remember me
