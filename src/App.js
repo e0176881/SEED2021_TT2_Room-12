@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import NavBar from "./components/navbar";
 import Home from "./components/home";
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Login from "./components/login.component";
 
 import {
   Modal,
@@ -37,6 +38,7 @@ class App extends React.Component {
           <Switch>
             {/* <Route path="/login" component={Login}></Route> */}
             <Route path="/home" component={Home}></Route>
+            <Route path="/login" component={Login} />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </Switch>
         </Router>
