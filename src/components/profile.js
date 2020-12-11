@@ -1,11 +1,11 @@
 import React from "react";
 
 function profile() {
-  return <div class="section-title">
+  return <div class="transactwrapper">
     <div class="container">
-      <div class="section-title">
-        <h2>About you</h2>
-        <p>We love to know more about you so that we make sure you get nothing but the best from us. Do update your details with us if they aren't correct.</p>
+      <div class="transactheader">
+        <h2>It has always been about you</h2>
+        <p>We only want what is best for you and we can only make that happen if we know you.</p>
       </div>
       <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
