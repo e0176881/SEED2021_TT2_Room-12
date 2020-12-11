@@ -44,9 +44,6 @@ class NavBar extends React.Component {
               <ReactBootStrap.Nav.Link href="/profile">
                 Profile
               </ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="/transactionHistory">
-                Transaction History
-              </ReactBootStrap.Nav.Link>
             </ReactBootStrap.Nav>
             <ReactBootStrap.Nav.Link href="/logout">
                 See you again!
