@@ -38,8 +38,14 @@ class NavBar extends React.Component {
                   Login
                 </ReactBootStrap.Nav.Link>
               )}
-              <ReactBootStrap.Nav.Link href="/register">
-                Register
+              <ReactBootStrap.Nav.Link href="/makePayment">
+                Make Payment
+              </ReactBootStrap.Nav.Link>
+              <ReactBootStrap.Nav.Link href="/profile">
+                Profile
+              </ReactBootStrap.Nav.Link>
+              <ReactBootStrap.Nav.Link href="/transactionHistory">
+                Transaction History
               </ReactBootStrap.Nav.Link>
             </ReactBootStrap.Nav>
             <ReactBootStrap.Nav className="NavUser">
