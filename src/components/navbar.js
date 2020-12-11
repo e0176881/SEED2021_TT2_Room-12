@@ -33,10 +33,11 @@ class NavBar extends React.Component {
           <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
             <ReactBootStrap.Nav className="mr-auto">
-              <ReactBootStrap.Nav.Link href="/login">
-                Login
-              </ReactBootStrap.Nav.Link>
-
+              {!localStorage.getItem("user") && (
+                <ReactBootStrap.Nav.Link href="/login">
+                  Login
+                </ReactBootStrap.Nav.Link>
+              )}
               <ReactBootStrap.Nav.Link href="/register">
                 Register
               </ReactBootStrap.Nav.Link>

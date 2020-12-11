@@ -11,7 +11,7 @@ export default class Home extends Component {
     };
   }
   componentDidMount() {
-    console.log();
+    console.log(localStorage.getItem("user"));
     if (localStorage.getItem("user") == null) {
       window.location.href = "/login";
     } else {
