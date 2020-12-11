@@ -15,7 +15,7 @@ export default class Login extends Component {
     this.handleCheckBox = this.handleCheckBox.bind(this);
   }
   componentDidMount() {
-    console.log(localStorage.getItem("userLoginDetails") != null);
+    console.log(new Date());
 
     if (localStorage.getItem("userLoginDetails") != null) {
       console.log("here");

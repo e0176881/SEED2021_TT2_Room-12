@@ -64,6 +64,7 @@ app.post("/api/userinfo", (req, res) => {
     });
 });
 
+
 app.post("/api/retrieveCustomerbyNRIC", (req, res) => {
   axios
     .post(
@@ -90,6 +91,7 @@ app.post("/api/retrieveCustomerbyNRIC", (req, res) => {
       } catch (e) {}
     });
 });
+
 
 app.post("/api/accountdetails", (req, res) => {
   axios
@@ -165,10 +167,10 @@ app.post("/api/addtransaction", (req, res) => {
       {
         custID: req.body.customerID,
         payeeID: req.body.payeeID,
-        dateTime: req.body.date,
+        dateTime: req.body.dateTime,
         amount: req.body.amount,
         expensesCat: req.body.expensesCat,
-        eGift: req.body.eGift,
+        eGift: true,
         message: req.body.message,
       },
       {
@@ -181,6 +183,7 @@ app.post("/api/addtransaction", (req, res) => {
     .catch((error) => error.response)
     .then((response) => {
       try {
+        console.log(response);
         res.status(response.status).send(response.data);
       } catch (e) {}
     });
