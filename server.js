@@ -43,7 +43,7 @@ app.post("/api/login", (req, res) => {
 app.post("/api/userinfo", (req, res) => {
   axios
     .post(
-      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/accounts/view",
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/users",
       {
         //no parameter
       },
