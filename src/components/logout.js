@@ -1,8 +1,7 @@
 import react from "react";
 
 function Logout() {
-  //localStorage.removeItem("userLoginDetails");
-  window.location = "/login";
+  window.location.href = "/login";
 }
 
 export default Logout;

@@ -15,7 +15,10 @@ export default class Login extends Component {
     this.handleCheckBox = this.handleCheckBox.bind(this);
   }
   componentDidMount() {
+    console.log(localStorage.getItem("userLoginDetails") != null);
+
     if (localStorage.getItem("userLoginDetails") != null) {
+      console.log("here");
       this.setState({
         rememberMe: true,
         username: JSON.parse(localStorage.getItem("userLoginDetails")).username,
@@ -44,16 +47,10 @@ export default class Login extends Component {
       .then((response) => response)
       .catch((error) => error.response)
       .then((response) => {
-        console.log(response);
         if (response.status === "200" || response.status === 200) {
           console.log(response);
 
           localStorage.setItem("user", JSON.stringify(response.data));
-          console.log("user " + localStorage.getItem("user"));
-          console.log(JSON.parse(localStorage.getItem("user")).custID);
-          console.log("console rmb me " + this.state.rememberMe);
-          console.log("console username " + this.state.username);
-          console.log("console password " + this.state.password);
           if (this.state.rememberMe) {
             var userCredentials = {
               username: this.state.username,
@@ -69,6 +66,7 @@ export default class Login extends Component {
           }
         }
       });
+    window.location.href = "/dashboard";
   };
   render() {
     return (

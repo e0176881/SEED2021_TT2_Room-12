@@ -44,15 +44,14 @@ class NavBar extends React.Component {
               <ReactBootStrap.Nav.Link href="/dashboard">
                 Dashboard
               </ReactBootStrap.Nav.Link>
-
             </ReactBootStrap.Nav>
             <ReactBootStrap.Nav className="NavUser">
               <ReactBootStrap.NavDropdown
                 title="User"
                 id="collasible-nav-dropdown"
               >
-                <ReactBootStrap.NavDropdown.Item href="/test">
-                  Test
+                <ReactBootStrap.NavDropdown.Item href="/logout">
+                  Logout
                 </ReactBootStrap.NavDropdown.Item>
                 <ReactBootStrap.NavDropdown.Item href="/test1">
                   Test1

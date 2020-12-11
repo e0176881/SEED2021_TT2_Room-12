@@ -4,6 +4,7 @@ import NavBar from "./components/navbar";
 import Home from "./components/home";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login";
+import Logout from "./components/logout";
 import Dashboard from "./components/dashboard";
 
 import {
@@ -40,6 +41,7 @@ class App extends React.Component {
             {/* <Route path="/login" component={Login}></Route> */}
             <Route path="/home" component={Home}></Route>
             <Route path="/login" component={Login} />
+            <Route path="/logout" component={Logout} />
             <Route path="/dashboard" component={Dashboard} />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </Switch>
