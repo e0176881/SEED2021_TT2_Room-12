@@ -40,11 +40,6 @@ class NavBar extends React.Component {
               <ReactBootStrap.Nav.Link href="/register">
                 Register
               </ReactBootStrap.Nav.Link>
-
-              <ReactBootStrap.Nav.Link href="/dashboard">
-                Dashboard
-              </ReactBootStrap.Nav.Link>
-
             </ReactBootStrap.Nav>
             <ReactBootStrap.Nav className="NavUser">
               <ReactBootStrap.NavDropdown
