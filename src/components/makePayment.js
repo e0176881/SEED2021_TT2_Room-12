@@ -7,13 +7,14 @@ function MakePayment() {
   const [custId, setCustId] = useState("");
 
   const onSubmit = (data) => {
+    var dt = new Date("30 July 2010 15:05 UTC");
+    console.log(dt.toISOString());
     setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
-    var date = new Date();
     axios
       .post("/api/addtransaction", {
         custID: custId,
         payeeID: 1,
-        dateTime: date,
+        dateTime: dt,
         amount: data.amount,
         expensesCat: data.expCat,
         eGift: data.eGift,
