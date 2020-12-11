@@ -4,17 +4,19 @@ import { useEffect, useState, Redirect } from "react";
 import axios from "axios";
 function MakePayment() {
   const { register, handleSubmit } = useForm();
-  const [custId, setCustId] = useState("");
+  const [custId, setCustId] = useState(
+    JSON.parse(localStorage.getItem("userLoginDetails")).custID
+  );
 
   const onSubmit = (data) => {
     var dt = new Date("30 July 2010 15:05 UTC");
     console.log(dt.toISOString());
-    setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
+    // setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
     axios
       .post("/api/addtransaction", {
-        custID: custId,
+        custID: 12,
         payeeID: 1,
-        dateTime: dt,
+        dateTime: dt.toISOString(),
         amount: data.amount,
         expensesCat: data.expCat,
         eGift: data.eGift,
