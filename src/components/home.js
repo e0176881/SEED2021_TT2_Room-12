@@ -73,10 +73,11 @@ export default class Home extends Component {
     return (
       <div className="App">
         <section>
-          <div class="container">
+          <div class="transactwrapper">
             
             <div class="row">
               <div class="col-lg-6">
+                <img src="public/logo192.png"></img>
                 <h1>Welcome {this.state.username}</h1>
                 <div class="row">
                   <div class="accountbalance">
@@ -94,10 +95,18 @@ export default class Home extends Component {
                       {this.state.accountTransactions &&
                         this.state.accountTransactions.map((data, i) => (
                           <div key={i}>
+                            <thead>
+                              <tr>
+                                <th>Payee</th>
+                                <th>Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody>
                             <tr>
                               <td align="left">{data.custID}</td>
                               <td align="right">{data.amount}</td>
                             </tr>
+                            </tbody>
                           </div>
                         ))}
                     </table>
