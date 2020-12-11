@@ -27,7 +27,7 @@ class NavBar extends React.Component {
           variant="light"
         >
           <ReactBootStrap.Navbar.Brand href="/">
-            Techtrek
+            Paylor
           </ReactBootStrap.Navbar.Brand>
 
           <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -48,26 +48,9 @@ class NavBar extends React.Component {
                 Transaction History
               </ReactBootStrap.Nav.Link>
             </ReactBootStrap.Nav>
-            <ReactBootStrap.Nav className="NavUser">
-              <ReactBootStrap.NavDropdown
-                title="User"
-                id="collasible-nav-dropdown"
-              >
-                <ReactBootStrap.NavDropdown.Item href="/test">
-                  Test
-                </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/test1">
-                  Test1
-                </ReactBootStrap.NavDropdown.Item>
-                <ReactBootStrap.NavDropdown.Item href="/test2">
-                  Test2
-                </ReactBootStrap.NavDropdown.Item>
-
-                <ReactBootStrap.NavDropdown.Item href="/test3">
-                  Test3
-                </ReactBootStrap.NavDropdown.Item>
-              </ReactBootStrap.NavDropdown>
-            </ReactBootStrap.Nav>
+            <ReactBootStrap.Nav.Link href="/logout">
+                See you again!
+              </ReactBootStrap.Nav.Link>
           </ReactBootStrap.Navbar.Collapse>
         </ReactBootStrap.Navbar>
       </div>

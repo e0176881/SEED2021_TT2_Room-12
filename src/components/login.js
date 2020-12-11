@@ -8,19 +8,32 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      rememberMe: false,
     };
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheckBox = this.handleCheckBox.bind(this);
   }
   componentDidMount() {
-    if (localStorage.getItem("user") != null) {
-      window.location.href = "/";
+    console.log(localStorage.getItem("userLoginDetails") != null);
+
+    if (localStorage.getItem("userLoginDetails") != null) {
+      console.log("here");
+      this.setState({
+        rememberMe: true,
+        username: JSON.parse(localStorage.getItem("userLoginDetails")).username,
+        password: JSON.parse(localStorage.getItem("userLoginDetails")).password,
+      });
     }
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value, error: "" });
     // console.log(user);
+  };
+
+  handleCheckBox = (e) => {
+    this.setState({ rememberMe: !this.state.rememberMe });
   };
 
   login = (e) => {
@@ -34,16 +47,26 @@ export default class Login extends Component {
       .then((response) => response)
       .catch((error) => error.response)
       .then((response) => {
-        console.log(response);
         if (response.status === "200" || response.status === 200) {
           console.log(response);
 
           localStorage.setItem("user", JSON.stringify(response.data));
-          console.log("user " + localStorage.getItem("user"));
-          console.log(JSON.parse(localStorage.getItem("user")).custID);
+          if (this.state.rememberMe) {
+            var userCredentials = {
+              username: this.state.username,
+              password: this.state.password,
+            };
+            localStorage.setItem(
+              "userLoginDetails",
+              JSON.stringify(userCredentials)
+            );
+          } else {
+            localStorage.removeItem("userLoginDetails");
+            this.setState({ rememberMe: false });
+          }
         }
-        window.location.href = "/";
       });
+    window.location.href = "/home";
   };
   render() {
     return (
@@ -53,7 +76,7 @@ export default class Login extends Component {
             <h3>Log in</h3>
 
             <div className="form-group">
-              <label>Username</label>
+              
               <input
                 type="text"
                 name="username"
@@ -65,7 +88,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label>Password</label>
+              
               <input
                 type="password"
                 name="password"
@@ -75,27 +98,26 @@ export default class Login extends Component {
                 onChange={this.handleChange}
               />
             </div>
-
-            <div className="form-group">
-              <div className="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customCheck1"
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                  Remember me
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" className="btn btn-dark btn-lg btn-block">
-              Sign in
-            </button>
-            <p className="forgot-password text-right">
-              Forgot <a href="#">password?</a>
-            </p>
           </div>
+
+          <div className="form-group">
+            <div className="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                className="custom-control-input"
+                id="customCheck1"
+                checked={this.state.rememberMe}
+                onChange={this.handleCheckBox}
+              />
+            
+              <label className="custom-control-label" htmlFor="customCheck1">
+                Remember me
+              </label>
+            </div>
+          </div>
+          <button type="submit" className="btn btn-dark btn-lg btn-block">
+            Sign in
+          </button>
         </div>
       </form>
     );

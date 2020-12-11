@@ -74,6 +74,7 @@ export default class Home extends Component {
       <div className="App">
         <section>
           <div class="container">
+            
             <div class="row">
               <div class="col-lg-6">
                 <h1>Welcome {this.state.username}</h1>
