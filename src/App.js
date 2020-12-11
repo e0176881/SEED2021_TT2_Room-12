@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import NavBar from "./components/navbar";
 import Home from "./components/home";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import {
   Modal,
   Button,
