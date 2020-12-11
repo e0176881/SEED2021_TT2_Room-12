@@ -44,51 +44,55 @@ export default class Login extends Component {
   render() {
     return (
       <form onSubmit={this.login}>
-        <h3>Log in</h3>
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-4">
+            <h3>Log in</h3>
 
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            className="form-control"
-            placeholder="Enter username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-        </div>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                name="username"
+                className="form-control"
+                placeholder="Enter username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            placeholder="Enter password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder="Enter password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
 
-        <div className="form-group">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
+            <div className="form-group">
+              <div className="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="customCheck1"
+                />
+                <label className="custom-control-label" htmlFor="customCheck1">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" className="btn btn-dark btn-lg btn-block">
+              Sign in
+            </button>
+            <p className="forgot-password text-right">
+              Forgot <a href="#">password?</a>
+            </p>
           </div>
         </div>
-
-        <button type="submit" className="btn btn-dark btn-lg btn-block">
-          Sign in
-        </button>
-        <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
-        </p>
       </form>
     );
   }
