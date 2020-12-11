@@ -22,8 +22,10 @@ app.post("/api/login", (req, res) => {
     .post(
       "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/login",
       {
-        username: "Group12",
-        password: "wuXznjuC4RADkOM",
+        // username: "Group12",
+        // password: "wuXznjuC4RADkOM",
+        username: req.body.username,
+        password: req.body.password,
       },
       {
         headers: {

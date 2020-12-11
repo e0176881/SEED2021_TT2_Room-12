@@ -1,17 +1,60 @@
 import React, { Component } from "react";
 
+const axios = require("axios");
+
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+    };
+    this.login = this.login.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  componentDidMount() {}
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value, error: "" });
+    // console.log(user);
+  };
+
+  login = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    axios
+      .post("/api/login", {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then((response) => response)
+      .catch((error) => error.response)
+      .then((response) => {
+        console.log(response);
+        if (response.status === "200" || response.status === 200) {
+          console.log(response);
+
+          localStorage.setItem("user", JSON.stringify(response.data));
+          console.log("user " + localStorage.getItem("user"));
+          console.log(JSON.parse(localStorage.getItem("user")).custID);
+        }
+        window.location("/dashboard");
+      });
+  };
   render() {
     return (
-      <form>
+      <form onSubmit={this.login}>
         <h3>Log in</h3>
 
         <div className="form-group">
           <label>Username</label>
           <input
-            type="username"
+            type="text"
+            name="username"
             className="form-control"
             placeholder="Enter username"
+            value={this.state.username}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -19,8 +62,11 @@ export default class Login extends Component {
           <label>Password</label>
           <input
             type="password"
+            name="password"
             className="form-control"
             placeholder="Enter password"
+            value={this.state.password}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -47,4 +93,3 @@ export default class Login extends Component {
     );
   }
 }
-
