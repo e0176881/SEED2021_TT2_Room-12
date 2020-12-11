@@ -13,14 +13,12 @@ function makePayment() {
             <div class="col-md-6 mt-4 mt-lg-0">
               <div class="icon-box">
                 <form>
-                  <label>Payee</label>
                   <input
                     type="text"
                     name="payeename"
                     className="form-control"
-                    placeholder="Enter Payee Name"
+                    placeholder="Enter Payee NRIC"
                   />
-                  <label>Amount</label>
                   <input
                     type="float"
                     name="payamount"
@@ -29,7 +27,7 @@ function makePayment() {
                   />
                   <br></br>
                   <button type="submit" className="btn btn-dark btn-lg btn-block">
-                    Pay lor!
+                    Pay Lor!
                   </button>
                 </form>
               </div>
