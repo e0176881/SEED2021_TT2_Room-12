@@ -122,10 +122,6 @@ export default class Home extends Component {
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <a href="/profile" className="btn btn-info">Profile</a>
             </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <a href="/transactionHistory" className="btn btn-info">View Transaction History</a>
-            </div>
           </div>
           </div>
 
