@@ -73,7 +73,7 @@ export default class Login extends Component {
       <form onSubmit={this.login}>
         <div class="row mt-5 justify-content-center">
           <div class="col-lg-4">
-            <h3>Welcome to PayLLor!
+            <h3>Welcome to PayLor!
             </h3>
 
             <div className="form-group">
@@ -102,7 +102,7 @@ export default class Login extends Component {
           </div>
           </div>
           
-          <div class="row mt-5 justify-content-center">
+          <div class="row mt-0 justify-content-center">
           <div className="form-group">
             <div className="custom-control custom-checkbox">
               <input
@@ -118,7 +118,9 @@ export default class Login extends Component {
               </label>
             </div>
           </div>
-         
+
+          </div>
+          <div class="row mt-0 justify-content-center">
           <div class="submitbtn">
           <button type="submit" className="btn btn-dark btn-lg btn-block">
             Sign in
