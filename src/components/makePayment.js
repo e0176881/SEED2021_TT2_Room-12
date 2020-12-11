@@ -9,12 +9,12 @@ function MakePayment() {
   const onSubmit = (data) => {
     var dt = new Date("30 July 2010 15:05 UTC");
     console.log(dt.toISOString());
-    setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
+    //setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
     axios
       .post("/api/addtransaction", {
-        custID: custId,
+        customerID: 12,
         payeeID: 1,
-        dateTime: dt,
+        dateTime: dt.toISOString(),
         amount: data.amount,
         expensesCat: data.expCat,
         eGift: data.eGift,

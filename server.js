@@ -141,7 +141,7 @@ app.post("/api/addtransaction", (req, res) => {
         dateTime: req.body.dateTime,
         amount: req.body.amount,
         expensesCat: req.body.expensesCat,
-        eGift: req.body.eGift,
+        eGift: true,
         message: req.body.message,
       },
       {
@@ -154,6 +154,7 @@ app.post("/api/addtransaction", (req, res) => {
     .catch((error) => error.response)
     .then((response) => {
       try {
+        console.log(response);
         res.status(response.status).send(response.data);
       } catch (e) {}
     });
