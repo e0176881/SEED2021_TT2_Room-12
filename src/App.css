@@ -166,3 +166,15 @@ button {
 .transactheader {
   text-align: left;
 }
+
+
+
+.mainleft {
+  width: 40%;
+  float:left;
+}
+
+.mainright {
+  width: 40%;
+  float:right;
+}

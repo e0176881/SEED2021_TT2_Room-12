@@ -73,6 +73,7 @@ export default class Home extends Component {
     return (
       <div class="transactwrapper">
         <div class="container">
+        <div class="mainleft">
           <div class="transactheader">
             <h2>Welcome {this.state.username}</h2>
             $
@@ -85,22 +86,10 @@ export default class Home extends Component {
             {this.state.accountDetails.accountNumber &&
               this.state.accountDetails.accountNumber}
           </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <a href="/makePayments" className="btn btn-info">Pay Someone</a>
-            </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <a href="/profile" className="btn btn-info">Profile</a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <a href="/transactionHistory" className="btn btn-info">View Transaction History</a>
-            </div>
-          </div>
 
           <div class="transactheader">
-            <h2>Transaction</h2>
+            <h2>Transaction History</h2>
             <table class="transactionhist">
               {this.state.accountTransactions &&
                 this.state.accountTransactions.map((data, i) => (
@@ -121,6 +110,26 @@ export default class Home extends Component {
                 ))}
             </table>
           </div>
+
+
+          </div>
+          <div class="mainright">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <a href="/makePayments" className="btn btn-info">Pay Someone</a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <a href="/profile" className="btn btn-info">Profile</a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <a href="/transactionHistory" className="btn btn-info">View Transaction History</a>
+            </div>
+          </div>
+          </div>
+
+          
         </div>
       </div>
       
