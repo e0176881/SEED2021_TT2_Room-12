@@ -76,7 +76,7 @@ export default class Login extends Component {
             <h3>Log in</h3>
 
             <div className="form-group">
-              <label>Username</label>
+              
               <input
                 type="text"
                 name="username"
@@ -88,7 +88,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label>Password</label>
+              
               <input
                 type="password"
                 name="password"
@@ -109,6 +109,7 @@ export default class Login extends Component {
                 checked={this.state.rememberMe}
                 onChange={this.handleCheckBox}
               />
+            
               <label className="custom-control-label" htmlFor="customCheck1">
                 Remember me
               </label>
