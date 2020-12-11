@@ -57,38 +57,27 @@ function MakePayment() {
                   type="text"
                   name="payeenric"
                   className="form-control"
-                  placeholder="Enter Payee Name"
+                  placeholder="Enter Payee NRIC"
                 />
                 <label>Amount</label>
                 <input
-                  type="float"
+                  type="number"
                   name="amount"
                   className="form-control"
                   placeholder="Enter Amount"
                 />
                 <label>Expense Category</label>
-                <input
-                  type="text"
-                  name="expCat"
-                  className="form-control"
-                  placeholder="Enter Expense Category"
-                />
-                <div className="form-group">
-                  <div className="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="customCheck1"
-                      name="eGift"
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="customCheck1"
-                    >
-                      EGift
-                    </label>
-                  </div>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option value="insurance">Insurance</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="shopping">Shopping</option>
+                    
+                  </select>
                 </div>
+               
 
                 <label>Message</label>
                 <input
