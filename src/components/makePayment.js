@@ -48,6 +48,7 @@ function MakePayment() {
                 anyone now!
               </p>
             </div>
+
           </div>
           <div class="col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">

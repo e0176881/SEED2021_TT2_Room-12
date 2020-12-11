@@ -64,6 +64,35 @@ app.post("/api/userinfo", (req, res) => {
     });
 });
 
+
+app.post("/api/retrieveCustomerbyNRIC", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/users",
+      {
+        //no parameter
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        for (var i in response.data) {
+          if (response.data[i].nric == req.body.nric) {
+            res.status(response.status).send(response.data[i]);
+            break;
+          }
+        }
+      } catch (e) {}
+    });
+});
+
+
 app.post("/api/accountdetails", (req, res) => {
   axios
     .post(
