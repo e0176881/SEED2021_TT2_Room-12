@@ -106,6 +106,15 @@ input {
   font-weight: 400;
 }
 
+.submitbtn {
+  width: 30%;
+
+}
+
+button {
+  border-radius: 40px !important;
+}
+
 .forgot-password,
 .forgot-password a {
   text-align: right;
