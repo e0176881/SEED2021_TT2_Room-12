@@ -16,14 +16,11 @@ export default class Login extends Component {
   }
   componentDidMount() {
     if (localStorage.getItem("userLoginDetails") != null) {
-      this.setState.rememberMe = true;
-      this.setState.username = JSON.parse(
-        localStorage.getItem("userLoginDetails")
-      ).username;
-      this.setState.password = JSON.parse(
-        localStorage.getItem("userLoginDetails")
-      ).password;
-      console.log(this.state.username + "AHH");
+      this.setState({
+        rememberMe: true,
+        username: JSON.parse(localStorage.getItem("userLoginDetails")).username,
+        password: JSON.parse(localStorage.getItem("userLoginDetails")).password,
+      });
     }
   }
 
@@ -68,7 +65,7 @@ export default class Login extends Component {
             );
           } else {
             localStorage.removeItem("userLoginDetails");
-            this.setState.rememberMe = false;
+            this.setState({ rememberMe: false });
           }
         }
       });
