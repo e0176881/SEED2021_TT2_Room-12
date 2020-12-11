@@ -4,15 +4,17 @@ import { useEffect, useState, Redirect } from "react";
 import axios from "axios";
 function MakePayment() {
   const { register, handleSubmit } = useForm();
-  const [custId, setCustId] = useState("");
+  const [custId, setCustId] = useState(
+    JSON.parse(localStorage.getItem("userLoginDetails")).custID
+  );
 
   const onSubmit = (data) => {
     var dt = new Date("30 July 2010 15:05 UTC");
     console.log(dt.toISOString());
-    //setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
+    // setCustId(JSON.parse(localStorage.getItem("userLoginDetails")).custID);
     axios
       .post("/api/addtransaction", {
-        customerID: 12,
+        custID: 12,
         payeeID: 1,
         dateTime: dt.toISOString(),
         amount: data.amount,
@@ -55,37 +57,24 @@ function MakePayment() {
                   type="text"
                   name="payeenric"
                   className="form-control"
-                  placeholder="Enter Payee Name"
+                  placeholder="Enter Payee NRIC"
                 />
                 <label>Amount</label>
                 <input
-                  type="float"
+                  type="number"
                   name="amount"
                   className="form-control"
                   placeholder="Enter Amount"
                 />
                 <label>Expense Category</label>
-                <input
-                  type="text"
-                  name="expCat"
-                  className="form-control"
-                  placeholder="Enter Expense Category"
-                />
-                <div className="form-group">
-                  <div className="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="customCheck1"
-                      name="eGift"
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="customCheck1"
-                    >
-                      EGift
-                    </label>
-                  </div>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option value="insurance">Insurance</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="shopping">Shopping</option>
+                  </select>
                 </div>
 
                 <label>Message</label>
