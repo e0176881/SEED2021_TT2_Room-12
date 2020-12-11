@@ -15,20 +15,15 @@ export default class Login extends Component {
     this.handleCheckBox = this.handleCheckBox.bind(this);
   }
   componentDidMount() {
-    console.log("componentDidMount rmb me " + this.state.rememberMe);
-    console.log("componentDidMount username " + this.state.username);
-    console.log("componentDidMount password " + this.state.password);
     if (localStorage.getItem("userLoginDetails") != null) {
-      console.log("componentDidMount rmb me " + this.state.rememberMe);
-      console.log("componentDidMount username " + this.state.username);
-      console.log("componentDidMount password " + this.state.password);
-      this.state.rememberMe = true;
-      this.state.username = JSON.parse(
+      this.setState.rememberMe = true;
+      this.setState.username = JSON.parse(
         localStorage.getItem("userLoginDetails")
       ).username;
-      this.state.password = JSON.parse(
+      this.setState.password = JSON.parse(
         localStorage.getItem("userLoginDetails")
       ).password;
+      console.log(this.state.username + "AHH");
     }
   }
 
@@ -71,13 +66,9 @@ export default class Login extends Component {
               "userLoginDetails",
               JSON.stringify(userCredentials)
             );
-            console.log(
-              "HHHH " +
-                JSON.parse(localStorage.getItem("userLoginDetails")).username
-            );
           } else {
             localStorage.removeItem("userLoginDetails");
-            this.state.rememberMe = false;
+            this.setState.rememberMe = false;
           }
         }
       });
