@@ -76,21 +76,23 @@ export default class Home extends Component {
         <div class="mainleft">
           <div class="transactheader">
             <h2>Welcome {this.state.username}</h2>
+            <div class="accountbalance1">
             $
             {this.state.accountDetails.availableBal &&
               this.state.accountDetails.availableBal}
-            <br></br>
+            <br></br></div>
+            <div class="textright">
             {this.state.accountDetails.accountName &&
               this.state.accountDetails.accountName}
             <br></br>
             {this.state.accountDetails.accountNumber &&
               this.state.accountDetails.accountNumber}
-          </div>
+          </div></div>
 
 
           <div class="transactheader">
             <h2>Transaction History</h2>
-            <table class="transactionhist">
+            <table>
               {this.state.accountTransactions &&
                 this.state.accountTransactions.map((data, i) => (
                   <div key={i}>
