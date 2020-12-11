@@ -114,8 +114,9 @@ export default class Home extends Component {
                 </div>
               </div>
               <div class="col-lg-6 pt-4 pt-lg-0">
-                <h3>Functions here</h3>
-                <p></p>
+                <a href="/makePayments" className="btn btn-dark btn-lg btn-block">Pay Someone</a>
+                <a href="/profile" className="btn btn-dark btn-lg btn-block">Profile</a>
+                <a href="/transactionHistory" className="btn btn-dark btn-lg btn-block">View Transaction History</a>
               </div>
             </div>
           </div>
