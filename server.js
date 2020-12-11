@@ -42,6 +42,129 @@ app.post("/api/login", (req, res) => {
     });
 });
 
+app.post("/api/userinfo", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/users",
+      {
+        //no parameter
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        res.status(response.status).send(response.data);
+      } catch (e) {}
+    });
+});
+
+
+app.post("/api/accountdetails", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/accounts/view",
+      {
+        custID: req.body.customerID,
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        res.status(response.status).send(response.data);
+      } catch (e) {}
+    });
+});
+
+
+app.post("/api/updatebalance", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/accounts/update",
+      {
+        custID: req.body.customerID,
+        amount: req.body.amount,
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        res.status(response.status).send(response.data);
+      } catch (e) {}
+    });
+});
+
+
+app.post("/api/transactiondetails", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/transaction/view",
+      {
+        custID: req.body.customerID,
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        res.status(response.status).send(response.data);
+      } catch (e) {}
+    });
+});
+
+
+
+app.post("/api/addtransaction", (req, res) => {
+  axios
+    .post(
+      "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020/transaction/add",
+      {
+        custID: req.body.customerID,
+        payeeID: req.body.payeeID,
+        dateTime: req.body.date,
+        amount: req.body.amount,
+        expensesCat: req.body.expensesCat,
+        eGift: req.body.eGift,
+        message: req.body.message,
+      },
+      {
+        headers: {
+          "x-api-key": "LOWUmvIAYg4sS1mrgJvxk6M1KHJbCQLs8T5SLyof",
+        },
+      }
+    )
+    .then((response) => response)
+    .catch((error) => error.response)
+    .then((response) => {
+      try {
+        res.status(response.status).send(response.data);
+      } catch (e) {}
+    });
+});
+
+
 app.get("/api/zz", (req, res) => {
   console.log("api/users called!!!!");
   res.send("ok");

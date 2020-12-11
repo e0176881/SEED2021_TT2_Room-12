@@ -38,6 +38,7 @@ export default class Login extends Component {
           console.log("user " + localStorage.getItem("user"));
           console.log(JSON.parse(localStorage.getItem("user")).custID);
         }
+        window.location("/dashboard");
       });
   };
   render() {
