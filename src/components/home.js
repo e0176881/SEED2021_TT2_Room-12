@@ -71,57 +71,60 @@ export default class Home extends Component {
     console.log(this.state.accountDetails);
 
     return (
-      <div className="App">
-        <section>
-          <div class="transactwrapper">
-            
-            <div class="row">
-              <div class="col-lg-6">
-                <img src="public/logo192.png"></img>
-                <h1>Welcome {this.state.username}</h1>
-                <div class="row">
-                  <div class="accountbalance">
-                    $
-                    {this.state.accountDetails.availableBal &&
-                      this.state.accountDetails.availableBal}
-                    {this.state.accountDetails.accountName &&
-                      this.state.accountDetails.accountName}
-                    {this.state.accountDetails.accountNumber &&
-                      this.state.accountDetails.accountNumber}
-                  </div>
+      <div class="transactwrapper">
+        <div class="container">
+          <div class="transactheader">
+            <h2>Welcome {this.state.username}</h2>
+            $
+            {this.state.accountDetails.availableBal &&
+              this.state.accountDetails.availableBal}
+            <br></br>
+            {this.state.accountDetails.accountName &&
+              this.state.accountDetails.accountName}
+            <br></br>
+            {this.state.accountDetails.accountNumber &&
+              this.state.accountDetails.accountNumber}
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <a href="/makePayments" className="btn btn-info">Pay Someone</a>
+            </div>
 
-                  <div class="transactionhist">
-                    <table class="transactionhist">
-                      {this.state.accountTransactions &&
-                        this.state.accountTransactions.map((data, i) => (
-                          <div key={i}>
-                            <thead>
-                              <tr>
-                                <th>Payee</th>
-                                <th>Amount</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                              <td align="left">{data.custID}</td>
-                              <td align="right">{data.amount}</td>
-                            </tr>
-                            </tbody>
-                          </div>
-                        ))}
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 pt-4 pt-lg-0">
-                <a href="/makePayments" className="btn btn-dark btn-lg btn-block">Pay Someone</a>
-                <a href="/profile" className="btn btn-dark btn-lg btn-block">Profile</a>
-                <a href="/transactionHistory" className="btn btn-dark btn-lg btn-block">View Transaction History</a>
-              </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <a href="/profile" className="btn btn-info">Profile</a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <a href="/transactionHistory" className="btn btn-info">View Transaction History</a>
             </div>
           </div>
-        </section>
+
+          <div class="transactheader">
+            <h2>Transaction</h2>
+            <table class="transactionhist">
+              {this.state.accountTransactions &&
+                this.state.accountTransactions.map((data, i) => (
+                  <div key={i}>
+                    <thead>
+                      <tr>
+                        <th>Payee</th>
+                        <th>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td align="left">{data.custID}</td>
+                      <td align="right">{data.amount}</td>
+                    </tr>
+                    </tbody>
+                  </div>
+                ))}
+            </table>
+          </div>
+        </div>
       </div>
+      
     );
   }
 }
+
