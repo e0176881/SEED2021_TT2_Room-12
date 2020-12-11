@@ -11,8 +11,13 @@ export default class Home extends Component {
     };
   }
   componentDidMount() {
+    console.log();
     if (localStorage.getItem("user") == null) {
-      window.location = "/login";
+      window.location.href = "/login";
+    } else {
+      this.setState({
+        username: JSON.parse(localStorage.getItem("user")).lastName,
+      });
     }
   }
 
@@ -24,41 +29,41 @@ export default class Home extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome (insert name code)</h1>
-        <div class="card">
-          <div class="row">
-            <div class="col-sm-6 col-lg-4">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
+        <h1>Welcome {this.state.username}</h1>
+        <div className="card">
+          <div className="row">
+            <div className="col-sm-6 col-lg-4">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" class="btn btn-primary">
+                <a href="#" className="btn btn-primary">
                   Balance
                 </a>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
+            <div className="col-sm-6 col-lg-4">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" class="btn btn-primary">
+                <a href="#" className="btn btn-primary">
                   Transfer link
                 </a>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
+            <div className="col-sm-6 col-lg-4">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" class="btn btn-primary">
+                <a href="#" className="btn btn-primary">
                   Transaction history
                 </a>
               </div>
