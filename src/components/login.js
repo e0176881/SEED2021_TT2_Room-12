@@ -12,7 +12,11 @@ export default class Login extends Component {
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    if (localStorage.getItem("user") != null) {
+      window.location.href = "/";
+    }
+  }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value, error: "" });
@@ -38,7 +42,7 @@ export default class Login extends Component {
           console.log("user " + localStorage.getItem("user"));
           console.log(JSON.parse(localStorage.getItem("user")).custID);
         }
-        window.location("/home");
+        window.location.href = "/";
       });
   };
   render() {
